@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MailMind — AI Email Triage & Draft Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+:root{--bg:#eef0f4;--surface:#fff;--ink:#1b1d24;--muted:#6a7080;--line:#e5e7ec;--soft:#f6f7f9;
+--accent:#4f46e5;--high:#e5484d;--med:#e08600;--low:#12805c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.5}
+.app{max-width:1200px;margin:0 auto;padding:16px}
+.top{display:flex;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px}
+.mk{width:34px;height:34px;border-radius:9px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:1rem}
+.brand b{font-size:1.06rem;font-weight:700;letter-spacing:-.01em}
+.brand span{display:block;font-size:.72rem;color:var(--muted);font-weight:400}
+.metrics{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 11px;font-size:.74rem;color:var(--muted)}
+.chip b{color:var(--ink);font-size:.86rem;font-weight:700;display:block;font-variant-numeric:tabular-nums}
+.mode{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;color:var(--muted);padding:6px 10px;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.mode .d{width:7px;height:7px;border-radius:50%;background:var(--low)}
+.mode .d.off{background:var(--med)}
+.shell{display:grid;grid-template-columns:340px 1fr;gap:14px;height:calc(100vh - 120px);min-height:560px}
+.pane{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.pane .hd{padding:12px 15px;border-bottom:1px solid var(--line);font-weight:600;font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;display:flex;justify-content:space-between;align-items:center}
+.list{overflow-y:auto;flex:1}
+.row{display:flex;gap:11px;padding:12px 15px;border-bottom:1px solid var(--line);cursor:pointer;transition:.12s}
+.row:hover{background:var(--soft)}
+.row.sel{background:#eef0ff;box-shadow:inset 3px 0 0 var(--accent)}
+.row.sent{opacity:.55}
+.av{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;color:#fff;font-weight:600;font-size:.8rem}
+.row .body{min-width:0;flex:1}
+.row .l1{display:flex;justify-content:space-between;gap:8px}
+.row .nm{font-weight:600;font-size:.86rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .u{flex-shrink:0}
+.row .sub{font-size:.82rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:1px 0}
+.row .sn{font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.udot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.udot.high{background:var(--high)}.udot.medium{background:var(--med)}.udot.low{background:var(--low)}
+.itag{font-size:.66rem;font-weight:600;padding:2px 7px;border-radius:5px;background:var(--soft);border:1px solid var(--line);color:var(--muted);text-transform:capitalize;margin-top:5px;display:inline-block}
+/* reader */
+.reader{padding:0;overflow-y:auto;flex:1}
+.empty{display:grid;place-items:center;height:100%;color:var(--muted);text-align:center;padding:40px}
+.empty i{font-size:2rem;color:#c7cbd4;display:block;margin-bottom:12px}
+.rd{padding:20px 24px}
+.rd .from{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.rd .from .nm{font-weight:600}
+.rd .from .em{font-size:.8rem;color:var(--muted)}
+.rd h2{font-size:1.2rem;font-weight:600;letter-spacing:-.01em;margin-bottom:12px}
+.rd .msg{color:#33363f;white-space:pre-wrap;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.ai{margin-top:18px}
+.ai .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.ai .lbl .spark{color:var(--accent)}
+.triage{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:6px}
+.badge{font-size:.74rem;font-weight:600;padding:4px 10px;border-radius:7px;display:inline-flex;align-items:center;gap:6px}
+.badge.high{background:#fdecec;color:var(--high)}.badge.medium{background:#fbf1de;color:var(--med)}.badge.low{background:#e5f4ee;color:var(--low)}
+.badge.intent{background:#eef0ff;color:var(--accent)}
+.conf{font-size:.74rem;color:var(--muted)}
+.reason{font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:16px}
+.tones{display:flex;gap:6px;margin:6px 0 10px}
+.tone{font-size:.76rem;padding:5px 12px;border-radius:7px;border:1px solid var(--line);background:var(--surface);cursor:pointer;color:var(--muted)}
+.tone.on{border-color:var(--accent);background:#eef0ff;color:var(--accent);font-weight:600}
+.draftbox{width:100%;border:1px solid var(--line);border-radius:9px;padding:13px 15px;font-family:inherit;font-size:.9rem;line-height:1.6;color:#26282f;background:var(--soft);resize:vertical;min-height:170px}
+.draftbox:focus{outline:none;border-color:var(--accent);background:#fff}
+.critic{font-size:.76rem;color:var(--med);margin-top:8px;display:none}
+.critic.show{display:block}
+.actions{display:flex;gap:9px;margin-top:13px;align-items:center;flex-wrap:wrap}
+.btn{border:none;border-radius:8px;padding:9px 15px;font-weight:600;font-size:.84rem;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.btn.primary{background:var(--accent);color:#fff}.btn.primary:hover{background:#4338ca}
+.btn.ghost{background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--muted)}
+.btn:disabled{opacity:.5;cursor:default}
+.hil{font-size:.74rem;color:var(--muted);margin-left:auto;display:flex;align-items:center;gap:6px}
+.meta{font-size:.72rem;color:#9aa0ad;margin-top:10px;font-variant-numeric:tabular-nums}
+.meta a{color:var(--accent);text-decoration:none}
+.sentmsg{background:#e5f4ee;border:1px solid #bfe3d2;color:var(--low);border-radius:9px;padding:11px 14px;margin-top:12px;font-size:.86rem;font-weight:500;display:none}
+.sentmsg.show{display:block}
+.sentmsg a{color:var(--low);font-weight:700}
+@media(max-width:820px){.shell{grid-template-columns:1fr;height:auto}.list{max-height:320px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="brand">
+      <div class="mk"><i class="fa-solid fa-inbox"></i></div>
+      <div><b>MailMind</b><span>AI email triage &amp; draft engine</span></div>
+    </div>
+    <div class="metrics">
+      {% if metrics %}
+      <div class="chip">Urgency acc.<b>{{ (metrics.urgency_accuracy*100)|round|int }}%</b></div>
+      <div class="chip">Intent acc.<b>{{ (metrics.intent_accuracy*100)|round|int }}%</b></div>
+      <div class="chip">Cost / 1k<b>${{ metrics.cost_per_1000 }}</b></div>
+      <div class="chip">Avg / email<b>{{ (metrics.avg_ms_per_email/1000)|round(1) }}s</b></div>
+      {% endif %}
+      <div class="mode"><span class="d {{ '' if mode=='openai' else 'off' }}"></span>{{ 'GPT-4o live' if mode=='openai' else 'Cached demo' }}</div>
+      <div class="mode"><span class="d {{ '' if langfuse else 'off' }}"></span>{{ 'Langfuse' if langfuse else 'Local' }}</div>
+    </div>
+  </div>
+
+  <div class="shell">
+    <div class="pane">
+      <div class="hd">Inbox <span style="text-transform:none;font-weight:500;color:var(--muted)">{{ inbox|length }} messages</span></div>
+      <div class="list" id="list"></div>
+    </div>
+    <div class="pane">
+      <div class="hd" id="rdhd">Reading</div>
+      <div class="reader" id="reader">
+        <div class="empty"><div><i class="fa-solid fa-envelope-open-text"></i>Select an email — MailMind has already triaged it and drafted a reply.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const INBOX = {{ inbox|tojson }};
+const LIVE = {{ 'true' if mode=='openai' else 'false' }};
+const $ = id => document.getElementById(id);
+const AVC = ['#4f46e5','#0e7490','#b45309','#9333ea','#0f766e','#be123c','#1d4ed8','#4d7c0f'];
+const state = {}; // per-email current draft/tone
+
+function avatar(name,i){const init=name.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();
+  return `<div class="av" style="background:${AVC[i%AVC.length]}">${init}</div>`;}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+function renderList(){
+  $('list').innerHTML = INBOX.map((e,i)=>`
+    <div class="row" id="row-${e.id}" onclick="openEmail('${e.id}')">
+      ${avatar(e.from,i)}
+      <div class="body">
+        <div class="l1"><span class="nm">${esc(e.from)}</span><span class="u"><span class="udot ${e.urgency||'medium'}"></span></span></div>
+        <div class="sub">${esc(e.subject)}</div>
+        <div class="sn">${esc(e.body.slice(0,60))}…</div>
+        <span class="itag">${esc(e.intent||'—')}</span>
+      </div>
+    </div>`).join('');
+}
+
+function openEmail(id){
+  document.querySelectorAll('.row').forEach(r=>r.classList.remove('sel'));
+  $('row-'+id).classList.add('sel');
+  const e = INBOX.find(x=>x.id===id);
+  if(!state[id]) state[id] = {tone:'professional', draft:e.draft, urgency:e.urgency, intent:e.intent, confidence:e.confidence, reason:e.reason, critic_note:(e.tone_ok?'':e.critic_note)};
+  render(e, state[id]);
+}
+
+function render(e, s){
+  $('rdhd').textContent = 'Reading · '+e.from;
+  const i = INBOX.indexOf(e);
+  $('reader').innerHTML = `<div class="rd">
+    <div class="from">${avatar(e.from,i)}<div><div class="nm">${esc(e.from)}</div><div class="em">${esc(e.email)}</div></div></div>
+    <h2>${esc(e.subject)}</h2>
+    <div class="msg">${esc(e.body)}</div>
+    <div class="ai">
+      <div class="lbl"><i class="fa-solid fa-wand-magic-sparkles spark"></i> MailMind triage</div>
+      <div class="triage">
+        <span class="badge ${s.urgency}"><span class="udot ${s.urgency}"></span>${s.urgency} priority</span>
+        <span class="badge intent">${esc(s.intent)}</span>
+        <span class="conf">${Math.round((s.confidence||0)*100)}% confidence</span>
+      </div>
+      <div class="reason">${esc(s.reason||'')}</div>
+      <div class="lbl"><i class="fa-solid fa-pen spark"></i> Suggested reply · human approves before sending</div>
+      <div class="tones" id="tones">
+        ${['professional','friendly','concise'].map(t=>`<span class="tone ${s.tone===t?'on':''}" onclick="setTone('${e.id}','${t}')">${t}</span>`).join('')}
+      </div>
+      <textarea class="draftbox" id="draft">${esc(s.draft)}</textarea>
+      <div class="critic ${s.critic_note?'show':''}" id="critic"><i class="fa-solid fa-arrows-rotate"></i> Tone critic revised this draft: ${esc(s.critic_note)}</div>
+      <div class="actions">
+        <button class="btn primary" onclick="approve('${e.id}')"><i class="fa-solid fa-paper-plane"></i> Approve &amp; create draft</button>
+        <button class="btn ghost" onclick="regen('${e.id}')" id="regen"><i class="fa-solid fa-arrows-rotate"></i> Regenerate</button>
+        <span class="hil"><i class="fa-solid fa-user-check"></i> Nothing sends without your approval</span>
+      </div>
+      <div class="sentmsg" id="sent"></div>
+      <div class="meta" id="meta"></div>
+    </div></div>`;
+}
+
+function setTone(id,tone){
+  const e=INBOX.find(x=>x.id===id), s=state[id];
+  s.tone=tone;
+  if(tone==='professional'){ // restore the cached professional draft, no API call
+    s.draft=e.draft; s.urgency=e.urgency; s.intent=e.intent; s.confidence=e.confidence;
+    s.critic_note=(e.tone_ok?'':e.critic_note); render(e,s);
+  } else { regen(id); }
+}
+async function regen(id){
+  const s=state[id];
+  if(!LIVE){ $('meta').textContent='Live regeneration needs the API key (cached demo mode).'; return; }
+  const btn=$('regen'); if(btn){btn.disabled=true; btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Drafting…';}
+  $('meta').textContent='';
+  try{
+    const r=await fetch('/regenerate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,tone:s.tone})});
+    const d=await r.json();
+    if(d.error){ $('meta').textContent=d.error; }
+    else{
+      s.draft=d.draft; s.urgency=d.urgency; s.intent=d.intent; s.confidence=d.confidence;
+      s.critic_note=d.tone_ok?'':d.critic_note; s._loaded=true;
+      render(INBOX.find(x=>x.id===id), s);
+      const m=$('meta'); if(m){ m.innerHTML=`triaged + drafted in ${d.ms}ms · $${(d.cost||0).toFixed(4)}`+(d.trace_url?` · <a href="${d.trace_url}" target="_blank">trace</a>`:''); }
+    }
+  }catch(e){ $('meta').textContent='Error: '+e; }
+}
+
+async function approve(id){
+  const draft = $('draft').value;
+  const r=await fetch('/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,draft})});
+  const d=await r.json();
+  if(d.error){ alert(d.error); return; }
+  $('row-'+id).classList.add('sent');
+  const sm=$('sent'); sm.classList.add('show');
+  sm.innerHTML=`<i class="fa-solid fa-circle-check"></i> Approved — reply drafted to ${esc(INBOX.find(x=>x.id===id).email)}. <a href="${d.eml_url}" download="reply-${id}.eml">Download draft (.eml)</a>`;
+}
+
+// keep tone highlight in sync when regen sets draft
+renderList();
+openEmail(INBOX[0].id);
+</script>
+</body>
+</html>

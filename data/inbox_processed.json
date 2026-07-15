@@ -1,0 +1,614 @@
+[
+  {
+    "id": "m1",
+    "from": "Rachel Adams",
+    "email": "rachel.adams@brightloop.io",
+    "subject": "Still haven't received my refund \u2014 very frustrated",
+    "body": "Hi, I cancelled my Pro subscription 12 days ago and was promised a refund within 5 business days. I still don't see it on my card and nobody has replied to my last two emails. This is really disappointing. Can someone please tell me what is going on and when I'll get my money back?",
+    "urgency": "high",
+    "intent": "complaint",
+    "confidence": 0.95,
+    "reason": "The customer is frustrated about a delayed refund and lack of response, indicating a high urgency complaint.",
+    "draft": "Hi Rachel,\n\nI sincerely apologize for the inconvenience and frustration this has caused. I understand how important it is to have this resolved promptly. I've escalated your case to our billing team to ensure your refund is processed immediately. You should see the refund reflected on your card within the next 2-3 business days. Thank you for your patience, and please let me know if there's anything else I can assist you with.\n\nBest regards,\nSam, Northwind Support",
+    "tone_ok": true,
+    "critic_note": "The draft maintains a professional tone and includes an appropriate apology.",
+    "trace": [
+      {
+        "node": "classify",
+        "title": "Classify urgency & intent",
+        "summary": "HIGH \u00b7 complaint (95%)",
+        "detail": {
+          "urgency": "high",
+          "intent": "complaint",
+          "confidence": 0.95,
+          "reason": "The customer is frustrated about a delayed refund and lack of response, indicating a high urgency complaint."
+        },
+        "ms": 3514,
+        "tokens": 215
+      },
+      {
+        "node": "draft",
+        "title": "Draft a reply",
+        "summary": "Drafted a professional reply (78 words)",
+        "detail": {
+          "tone": "professional"
+        },
+        "ms": 2893,
+        "tokens": 276
+      },
+      {
+        "node": "critic",
+        "title": "Tone critic (self-correction)",
+        "summary": "Tone approved",
+        "detail": {
+          "tone_ok": true
+        },
+        "ms": 3087,
+        "tokens": 319
+      }
+    ],
+    "ms": 9507,
+    "cost": 0.004126
+  },
+  {
+    "id": "m2",
+    "from": "Daniel Okoro",
+    "email": "d.okoro@meridian-capital.com",
+    "subject": "Enterprise pricing for a 200-person team",
+    "body": "Hello, we're evaluating your platform for our operations team of about 200 people. Could you share enterprise pricing, whether you offer SSO/SAML, and what onboarding support looks like? We'd want to make a decision within the next two weeks.",
+    "urgency": "medium",
+    "intent": "question",
+    "confidence": 0.95,
+    "reason": "The email is a sales inquiry with a decision timeline, indicating medium urgency.",
+    "draft": "Hi Daniel,\n\nThank you for considering our platform for your team. For a 200-person team, we offer customized enterprise pricing based on specific needs and usage. We do support SSO/SAML integration to ensure secure and seamless access for your team. Our onboarding support includes a dedicated account manager, training sessions, and 24/7 customer support to ensure a smooth transition. Please let me know if you need more details or would like to schedule a call to discuss further.\n\nBest regards,\nSam, Northwind Support",
+    "tone_ok": true,
+    "critic_note": "The draft maintains a professional tone and appropriately addresses the customer's inquiry.",
+    "trace": [
+      {
+        "node": "classify",
+        "title": "Classify urgency & intent",
+        "summary": "MEDIUM \u00b7 question (95%)",
+        "detail": {
+          "urgency": "medium",
+          "intent": "question",
+          "confidence": 0.95,
+          "reason": "The email is a sales inquiry with a decision timeline, indicating medium urgency."
+        },
+        "ms": 1328,
+        "tokens": 193
+      },
+      {
+        "node": "draft",
+        "title": "Draft a reply",
+        "summary": "Drafted a professional reply (83 words)",
+        "detail": {
+          "tone": "professional"
+        },
+        "ms": 1898,
+        "tokens": 275
+      },
+      {
+        "node": "critic",
+        "title": "Tone critic (self-correction)",
+        "summary": "Tone approved",
+        "detail": {
+          "tone_ok": true
+        },
+        "ms": 1514,
+        "tokens": 342
+      }
+    ],
+    "ms": 4747,
+    "cost": 0.004223
+  },
+  {
+    "id": "m3",
+    "from": "Priya Nair",
+    "email": "priya@nair.dev",
+    "subject": "Can't reset my password",
+    "body": "Hi there, I've tried the Forgot Password link three times but the email never arrives. I checked spam. I really need to get into my account today to export a report. Is there another way to reset it?",
+    "urgency": "high",
+    "intent": "complaint",
+    "confidence": 0.95,
+    "reason": "The customer is unable to reset their password and needs urgent access to their account for a time-sensitive task.",
+    "draft": "Hi Priya,\n\nI'm sorry to hear you're having trouble with the password reset process. Let's get this sorted out quickly. Please check if the email address associated with your account is correct. If it is, I can manually send you a password reset link or assist you with another method to access your account. Please let me know how you'd like to proceed, and I'll ensure you get the help you need promptly.\n\nBest regards,\nSam, Northwind Support",
+    "tone_ok": true,
+    "critic_note": "The draft maintains a professional tone and appropriately addresses the complaint with an apology and offers assistance.",
+    "trace": [
+      {
+        "node": "classify",
+        "title": "Classify urgency & intent",
+        "summary": "HIGH \u00b7 complaint (95%)",
+        "detail": {
+          "urgency": "high",
+          "intent": "complaint",
+          "confidence": 0.95,
+          "reason": "The customer is unable to reset their password and needs urgent access to their account for a time-sensitive task."
+        },
+        "ms": 1287,
+        "tokens": 196
+      },
+      {
+        "node": "draft",
+        "title": "Draft a reply",
+        "summary": "Drafted a professional reply (78 words)",
+        "detail": {
+          "tone": "professional"
+        },
+        "ms": 2068,
+        "tokens": 249
+      },
+      {
+        "node": "critic",
+        "title": "Tone critic (self-correction)",
+        "summary": "Tone approved",
+        "detail": {
+          "tone_ok": true
+        },
+        "ms": 1582,
+        "tokens": 321
+      }
+    ],
+    "ms": 4947,
+    "cost": 0.004016
+  },
+  {
+    "id": "m4",
+    "from": "Product Weekly",
+    "email": "hello@productweekly.co",
+    "subject": "This week in product: 7 launches you missed",
+    "body": "Your Tuesday roundup is here. Inside: a new analytics tool raised $40M, three AI note-takers worth trying, and a deep dive on onboarding flows. Read the full issue on the web. You are receiving this because you subscribed.",
+    "urgency": "low",
+    "intent": "fyi",
+    "confidence": 0.95,
+    "reason": "The email is an informational newsletter with no immediate action required.",
+    "draft": "Thank you for sharing this week's product roundup with us. We appreciate staying informed about the latest developments and innovations in the industry. If there's anything specific you'd like to discuss or need assistance with regarding these topics, feel free to reach out. Have a great week! \n\nBest regards, \nSam, Northwind Support",
+    "tone_ok": true,
+    "critic_note": "The draft maintains a professional tone and is appropriate for an FYI email.",
+    "trace": [
+      {
+        "node": "classify",
+        "title": "Classify urgency & intent",
+        "summary": "LOW \u00b7 fyi (95%)",
+        "detail": {
+          "urgency": "low",
+          "intent": "fyi",
+          "confidence": 0.95,
+          "reason": "The email is an informational newsletter with no immediate action required."
+        },
+        "ms": 1092,
+        "tokens": 192
+      },
+      {
+        "node": "draft",
+        "title": "Draft a reply",
+        "summary": "Drafted a professional reply (52 words)",
+        "detail": {
+          "tone": "professional"
+        },
+        "ms": 2644,
+        "tokens": 233
+      },
+      {
+        "node": "critic",
+        "title": "Tone critic (self-correction)",
+        "summary": "Tone approved",
+        "detail": {
+          "tone_ok": true
+        },
+        "ms": 1379,
+        "tokens": 261
+      }
+    ],
+    "ms": 5121,
+    "cost": 0.003261
+  },
+  {
+    "id": "m5",
+    "from": "Tom Becker",
+    "email": "tom.becker@northgate.co",
+    "subject": "URGENT: dashboard is down for our whole team",
+    "body": "None of our 30 users can load the dashboard since about 20 minutes ago \u2014 everyone gets a 503 error. We have a client presentation in an hour that depends on this. Please treat this as urgent and let me know what's happening.",
+    "urgency": "high",
+    "intent": "complaint",
+    "confidence": 0.95,
+    "reason": "The email reports a service outage affecting multiple users and is time-sensitive due to an upcoming presentation.",
+    "draft": "Hi Tom,\n\nI'm really sorry to hear about the issue with the dashboard, especially with your important presentation coming up. Our team is actively investigating the 503 error and working to resolve it as quickly as possible. I understand the urgency and will keep you updated with any developments. Please feel free to reach out if you have any further questions or need additional assistance.\n\nBest regards,\nSam, Northwind Support",
+    "tone_ok": true,
+    "critic_note": "The draft maintains a professional tone and appropriately addresses the complaint with an apology and assurance of action.",
+    "trace": [
+      {
+        "node": "classify",
+        "title": "Classify urgency & intent",
+        "summary": "HIGH \u00b7 complaint (95%)",
+        "detail": {
+          "urgency": "high",
+          "intent": "complaint",
+          "confidence": 0.95,
+          "reason": "The email reports a service outage affecting multiple users and is time-sensitive due to an upcoming presentation."
+        },
+        "ms": 1363,
+        "tokens": 205
+      },
+      {
+        "node": "draft",
+        "title": "Draft a reply",
+        "summary": "Drafted a professional reply (70 words)",
+        "detail": {
+          "tone": "professional"
+        },
+        "ms": 1534,
+        "tokens": 254
+      },
+      {
+        "node": "critic",
+        "title": "Tone critic (self-correction)",
+        "summary": "Tone approved",
+        "detail": {
+          "tone_ok": true
+        },
+        "ms": 1697,
+        "tokens": 302
+      }
+    ],
+    "ms": 4599,
+    "cost": 0.003876
+  },
+  {
+    "id": "m6",
+    "from": "Laura Kim",
+    "email": "laura.kim@studiofour.design",
+    "subject": "Reschedule our Thursday call?",
+    "body": "Hi! Something came up on my end \u2014 would it be possible to move our Thursday 3pm call to Friday morning instead? Any time before noon works for me. Thanks so much!",
+    "urgency": "low",
+    "intent": "request",
+    "confidence": 0.95,
+    "reason": "The email is a polite request to reschedule a meeting, with no indication of urgency or distress.",
+    "draft": "Hi Laura,\n\nThank you for reaching out. I understand that schedules can change, and I'm happy to accommodate your request. We can reschedule our call to Friday morning. How does 10:00 AM sound? Please let me know if this works for you or if there's another time you prefer.\n\nLooking forward to our conversation.\n\nBest regards,\nSam, Northwind Support",
+    "tone_ok": true,
+    "critic_note": "The draft maintains a professional tone and appropriately addresses the request.",
+    "trace": [
+      {
+        "node": "classify",
+        "title": "Classify urgency & intent",
+        "summary": "LOW \u00b7 request (95%)",
+        "detail": {
+          "urgency": "low",
+          "intent": "request",
+          "confidence": 0.95,
+          "reason": "The email is a polite request to reschedule a meeting, with no indication of urgency or distress."
+        },
+        "ms": 1178,
+        "tokens": 188
+      },
+      {
+        "node": "draft",
+        "title": "Draft a reply",
+        "summary": "Drafted a professional reply (59 words)",
+        "detail": {
+          "tone": "professional"
+        },
+        "ms": 1822,
+        "tokens": 232
+      },
+      {
+        "node": "critic",
+        "title": "Tone critic (self-correction)",
+        "summary": "Tone approved",
+        "detail": {
+          "tone_ok": true
+        },
+        "ms": 1407,
+        "tokens": 285
+      }
+    ],
+    "ms": 4413,
+    "cost": 0.003615
+  },
+  {
+    "id": "m7",
+    "from": "Marcus Feld",
+    "email": "marcus@feldworks.io",
+    "subject": "Feature idea: bulk export to CSV",
+    "body": "Loving the product so far. One thing that would save me a lot of time is the ability to bulk-export multiple projects to CSV at once, rather than one at a time. Is that on the roadmap? No rush, just wanted to flag it.",
+    "urgency": "low",
+    "intent": "request",
+    "confidence": 0.95,
+    "reason": "The email suggests a feature idea and explicitly states 'No rush', indicating a low urgency request.",
+    "draft": "Hi Marcus,\n\nThank you for your feedback and for sharing your feature idea with us. I'm glad to hear you're enjoying the product! The ability to bulk-export multiple projects to CSV is a great suggestion and could indeed save time for many users. While this feature isn't currently on our immediate roadmap, I will pass your suggestion on to our development team for consideration in future updates. If you have any more ideas or questions, feel free to reach out.\n\nBest regards,\nSam, Northwind Support",
+    "tone_ok": true,
+    "critic_note": "The draft maintains a professional tone and appropriately addresses the customer's suggestion.",
+    "trace": [
+      {
+        "node": "classify",
+        "title": "Classify urgency & intent",
+        "summary": "LOW \u00b7 request (95%)",
+        "detail": {
+          "urgency": "low",
+          "intent": "request",
+          "confidence": 0.95,
+          "reason": "The email suggests a feature idea and explicitly states 'No rush', indicating a low urgency request."
+        },
+        "ms": 1169,
+        "tokens": 198
+      },
+      {
+        "node": "draft",
+        "title": "Draft a reply",
+        "summary": "Drafted a professional reply (85 words)",
+        "detail": {
+          "tone": "professional"
+        },
+        "ms": 2105,
+        "tokens": 266
+      },
+      {
+        "node": "critic",
+        "title": "Tone critic (self-correction)",
+        "summary": "Tone approved",
+        "detail": {
+          "tone_ok": true
+        },
+        "ms": 1559,
+        "tokens": 330
+      }
+    ],
+    "ms": 4839,
+    "cost": 0.004093
+  },
+  {
+    "id": "m8",
+    "from": "Sofia Herrera",
+    "email": "sofia.h@gmail.com",
+    "subject": "I was charged twice this month",
+    "body": "Hi, I just noticed two identical charges of $20 on my statement for this month's subscription. I only have one account. Can you please refund the duplicate charge and confirm it won't happen again?",
+    "urgency": "high",
+    "intent": "complaint",
+    "confidence": 0.95,
+    "reason": "The email describes a billing error with duplicate charges, which requires immediate attention.",
+    "draft": "Hi Sofia,\n\nI apologize for the inconvenience and any frustration this may have caused. I have reviewed your account and can confirm that there was indeed a duplicate charge. I have initiated a refund for the extra $20, which should appear in your account within 3-5 business days. Additionally, I've ensured that this issue won't occur again in the future. Please let me know if there's anything else I can assist you with.\n\nBest regards,\nSam, Northwind Support",
+    "tone_ok": true,
+    "critic_note": "The draft maintains a professional tone and appropriately addresses the complaint with an apology and resolution.",
+    "trace": [
+      {
+        "node": "classify",
+        "title": "Classify urgency & intent",
+        "summary": "HIGH \u00b7 complaint (95%)",
+        "detail": {
+          "urgency": "high",
+          "intent": "complaint",
+          "confidence": 0.95,
+          "reason": "The email describes a billing error with duplicate charges, which requires immediate attention."
+        },
+        "ms": 1355,
+        "tokens": 186
+      },
+      {
+        "node": "draft",
+        "title": "Draft a reply",
+        "summary": "Drafted a professional reply (78 words)",
+        "detail": {
+          "tone": "professional"
+        },
+        "ms": 1593,
+        "tokens": 252
+      },
+      {
+        "node": "critic",
+        "title": "Tone critic (self-correction)",
+        "summary": "Tone approved",
+        "detail": {
+          "tone_ok": true
+        },
+        "ms": 2521,
+        "tokens": 326
+      }
+    ],
+    "ms": 5477,
+    "cost": 0.004033
+  },
+  {
+    "id": "m9",
+    "from": "Alex Nguyen",
+    "email": "alex@partnerly.com",
+    "subject": "Partnership / integration opportunity",
+    "body": "Hi team, I run partnerships at Partnerly. We think there's a strong integration story between our products and would love to explore a co-marketing partnership. Are you open to a quick call next week to discuss?",
+    "urgency": "low",
+    "intent": "sales",
+    "confidence": 0.95,
+    "reason": "The email is proposing a partnership opportunity, which aligns with a sales intent and does not indicate urgency.",
+    "draft": "Hi Alex,\n\nThank you for reaching out and considering a partnership with us. We are always interested in exploring new integration opportunities that can benefit our customers. I'd be happy to arrange a call to discuss this further. Could you please let me know your availability next week, and we'll find a time that works?\n\nLooking forward to our conversation.\n\nBest regards,\nSam, Northwind Support",
+    "tone_ok": true,
+    "critic_note": "",
+    "trace": [
+      {
+        "node": "classify",
+        "title": "Classify urgency & intent",
+        "summary": "LOW \u00b7 sales (95%)",
+        "detail": {
+          "urgency": "low",
+          "intent": "sales",
+          "confidence": 0.95,
+          "reason": "The email is proposing a partnership opportunity, which aligns with a sales intent and does not indicate urgency."
+        },
+        "ms": 1188,
+        "tokens": 192
+      },
+      {
+        "node": "draft",
+        "title": "Draft a reply",
+        "summary": "Drafted a professional reply (65 words)",
+        "detail": {
+          "tone": "professional"
+        },
+        "ms": 1318,
+        "tokens": 234
+      },
+      {
+        "node": "critic",
+        "title": "Tone critic (self-correction)",
+        "summary": "Tone approved",
+        "detail": {
+          "tone_ok": true
+        },
+        "ms": 2013,
+        "tokens": 277
+      }
+    ],
+    "ms": 4522,
+    "cost": 0.003527
+  },
+  {
+    "id": "m10",
+    "from": "Ben Carter",
+    "email": "ben.carter@acme.co",
+    "subject": "Thanks for the quick help yesterday",
+    "body": "Just wanted to say thank you \u2014 your support team sorted out my billing issue really quickly yesterday and were super friendly about it. Great experience overall. Keep it up!",
+    "urgency": "low",
+    "intent": "fyi",
+    "confidence": 0.95,
+    "reason": "The email expresses gratitude and provides positive feedback without requesting further action.",
+    "draft": "Hi Ben,\n\nThank you so much for your kind words! I'm thrilled to hear that our support team was able to assist you promptly and that you had a positive experience. We strive to provide the best service possible, and your feedback means a lot to us. If you need any further assistance, feel free to reach out.\n\nBest regards,\nSam, Northwind Support",
+    "tone_ok": true,
+    "critic_note": "",
+    "trace": [
+      {
+        "node": "classify",
+        "title": "Classify urgency & intent",
+        "summary": "LOW \u00b7 fyi (95%)",
+        "detail": {
+          "urgency": "low",
+          "intent": "fyi",
+          "confidence": 0.95,
+          "reason": "The email expresses gratitude and provides positive feedback without requesting further action."
+        },
+        "ms": 1145,
+        "tokens": 173
+      },
+      {
+        "node": "draft",
+        "title": "Draft a reply",
+        "summary": "Drafted a professional reply (63 words)",
+        "detail": {
+          "tone": "professional"
+        },
+        "ms": 1526,
+        "tokens": 227
+      },
+      {
+        "node": "critic",
+        "title": "Tone critic (self-correction)",
+        "summary": "Tone approved",
+        "detail": {
+          "tone_ok": true
+        },
+        "ms": 1231,
+        "tokens": 270
+      }
+    ],
+    "ms": 3907,
+    "cost": 0.003319
+  },
+  {
+    "id": "m11",
+    "from": "Hannah Weiss",
+    "email": "hannah.weiss@lumen.io",
+    "subject": "Please cancel my subscription",
+    "body": "Hi, I'd like to cancel my subscription before the next billing date. The tool is great but we're consolidating vendors this quarter. Can you confirm the cancellation and that I won't be charged again?",
+    "urgency": "high",
+    "intent": "request",
+    "confidence": 0.95,
+    "reason": "The customer is requesting a subscription cancellation before the next billing date, which is time-sensitive.",
+    "draft": "Hi Hannah,\n\nThank you for reaching out. I understand the importance of managing your subscriptions effectively. I have processed the cancellation of your subscription, and you will not be charged again. You should receive a confirmation email shortly. If there's anything else I can assist you with, please let me know.\n\nBest regards,\nSam, Northwind Support",
+    "tone_ok": true,
+    "critic_note": "",
+    "trace": [
+      {
+        "node": "classify",
+        "title": "Classify urgency & intent",
+        "summary": "HIGH \u00b7 request (95%)",
+        "detail": {
+          "urgency": "high",
+          "intent": "request",
+          "confidence": 0.95,
+          "reason": "The customer is requesting a subscription cancellation before the next billing date, which is time-sensitive."
+        },
+        "ms": 1128,
+        "tokens": 186
+      },
+      {
+        "node": "draft",
+        "title": "Draft a reply",
+        "summary": "Drafted a professional reply (56 words)",
+        "detail": {
+          "tone": "professional"
+        },
+        "ms": 1180,
+        "tokens": 220
+      },
+      {
+        "node": "critic",
+        "title": "Tone critic (self-correction)",
+        "summary": "Tone approved",
+        "detail": {
+          "tone_ok": true
+        },
+        "ms": 1265,
+        "tokens": 257
+      }
+    ],
+    "ms": 3577,
+    "cost": 0.003248
+  },
+  {
+    "id": "m12",
+    "from": "Raj Patel",
+    "email": "raj@patelanalytics.com",
+    "subject": "Question about API rate limits",
+    "body": "Hey, we're building an integration on top of your API. What are the current rate limits on the Business plan, and do you offer higher limits or a webhook option for bulk syncs? Trying to design around them correctly.",
+    "urgency": "medium",
+    "intent": "question",
+    "confidence": 0.95,
+    "reason": "The email asks for specific information about API rate limits which is important for their integration design.",
+    "draft": "Hi Raj,\n\nThank you for reaching out with your question. On the Business plan, the current API rate limit is set to 10,000 requests per hour. If you require higher limits, we do offer custom solutions that can be tailored to your needs, including webhook options for bulk syncs. Please let us know if you would like more details on these options or if there's anything else we can assist you with.\n\nBest regards,\nSam, Northwind Support",
+    "tone_ok": true,
+    "critic_note": "The draft maintains a professional tone and appropriately addresses the customer's question.",
+    "trace": [
+      {
+        "node": "classify",
+        "title": "Classify urgency & intent",
+        "summary": "MEDIUM \u00b7 question (95%)",
+        "detail": {
+          "urgency": "medium",
+          "intent": "question",
+          "confidence": 0.95,
+          "reason": "The email asks for specific information about API rate limits which is important for their integration design."
+        },
+        "ms": 1123,
+        "tokens": 188
+      },
+      {
+        "node": "draft",
+        "title": "Draft a reply",
+        "summary": "Drafted a professional reply (77 words)",
+        "detail": {
+          "tone": "professional"
+        },
+        "ms": 2138,
+        "tokens": 255
+      },
+      {
+        "node": "critic",
+        "title": "Tone critic (self-correction)",
+        "summary": "Tone approved",
+        "detail": {
+          "tone_ok": true
+        },
+        "ms": 1486,
+        "tokens": 320
+      }
+    ],
+    "ms": 4752,
+    "cost": 0.003956
+  }
+]

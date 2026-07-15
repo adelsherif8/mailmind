@@ -1,0 +1,74 @@
+[
+  {
+    "id": "m1", "from": "Rachel Adams", "email": "rachel.adams@brightloop.io",
+    "subject": "Still haven't received my refund — very frustrated",
+    "body": "Hi, I cancelled my Pro subscription 12 days ago and was promised a refund within 5 business days. I still don't see it on my card and nobody has replied to my last two emails. This is really disappointing. Can someone please tell me what is going on and when I'll get my money back?",
+    "expected_urgency": "high", "expected_intent": "complaint"
+  },
+  {
+    "id": "m2", "from": "Daniel Okoro", "email": "d.okoro@meridian-capital.com",
+    "subject": "Enterprise pricing for a 200-person team",
+    "body": "Hello, we're evaluating your platform for our operations team of about 200 people. Could you share enterprise pricing, whether you offer SSO/SAML, and what onboarding support looks like? We'd want to make a decision within the next two weeks.",
+    "expected_urgency": "medium", "expected_intent": "sales"
+  },
+  {
+    "id": "m3", "from": "Priya Nair", "email": "priya@nair.dev",
+    "subject": "Can't reset my password",
+    "body": "Hi there, I've tried the Forgot Password link three times but the email never arrives. I checked spam. I really need to get into my account today to export a report. Is there another way to reset it?",
+    "expected_urgency": "high", "expected_intent": "question"
+  },
+  {
+    "id": "m4", "from": "Product Weekly", "email": "hello@productweekly.co",
+    "subject": "This week in product: 7 launches you missed",
+    "body": "Your Tuesday roundup is here. Inside: a new analytics tool raised $40M, three AI note-takers worth trying, and a deep dive on onboarding flows. Read the full issue on the web. You are receiving this because you subscribed.",
+    "expected_urgency": "low", "expected_intent": "fyi"
+  },
+  {
+    "id": "m5", "from": "Tom Becker", "email": "tom.becker@northgate.co",
+    "subject": "URGENT: dashboard is down for our whole team",
+    "body": "None of our 30 users can load the dashboard since about 20 minutes ago — everyone gets a 503 error. We have a client presentation in an hour that depends on this. Please treat this as urgent and let me know what's happening.",
+    "expected_urgency": "high", "expected_intent": "complaint"
+  },
+  {
+    "id": "m6", "from": "Laura Kim", "email": "laura.kim@studiofour.design",
+    "subject": "Reschedule our Thursday call?",
+    "body": "Hi! Something came up on my end — would it be possible to move our Thursday 3pm call to Friday morning instead? Any time before noon works for me. Thanks so much!",
+    "expected_urgency": "low", "expected_intent": "request"
+  },
+  {
+    "id": "m7", "from": "Marcus Feld", "email": "marcus@feldworks.io",
+    "subject": "Feature idea: bulk export to CSV",
+    "body": "Loving the product so far. One thing that would save me a lot of time is the ability to bulk-export multiple projects to CSV at once, rather than one at a time. Is that on the roadmap? No rush, just wanted to flag it.",
+    "expected_urgency": "low", "expected_intent": "request"
+  },
+  {
+    "id": "m8", "from": "Sofia Herrera", "email": "sofia.h@gmail.com",
+    "subject": "I was charged twice this month",
+    "body": "Hi, I just noticed two identical charges of $20 on my statement for this month's subscription. I only have one account. Can you please refund the duplicate charge and confirm it won't happen again?",
+    "expected_urgency": "high", "expected_intent": "complaint"
+  },
+  {
+    "id": "m9", "from": "Alex Nguyen", "email": "alex@partnerly.com",
+    "subject": "Partnership / integration opportunity",
+    "body": "Hi team, I run partnerships at Partnerly. We think there's a strong integration story between our products and would love to explore a co-marketing partnership. Are you open to a quick call next week to discuss?",
+    "expected_urgency": "medium", "expected_intent": "sales"
+  },
+  {
+    "id": "m10", "from": "Ben Carter", "email": "ben.carter@acme.co",
+    "subject": "Thanks for the quick help yesterday",
+    "body": "Just wanted to say thank you — your support team sorted out my billing issue really quickly yesterday and were super friendly about it. Great experience overall. Keep it up!",
+    "expected_urgency": "low", "expected_intent": "fyi"
+  },
+  {
+    "id": "m11", "from": "Hannah Weiss", "email": "hannah.weiss@lumen.io",
+    "subject": "Please cancel my subscription",
+    "body": "Hi, I'd like to cancel my subscription before the next billing date. The tool is great but we're consolidating vendors this quarter. Can you confirm the cancellation and that I won't be charged again?",
+    "expected_urgency": "medium", "expected_intent": "request"
+  },
+  {
+    "id": "m12", "from": "Raj Patel", "email": "raj@patelanalytics.com",
+    "subject": "Question about API rate limits",
+    "body": "Hey, we're building an integration on top of your API. What are the current rate limits on the Business plan, and do you offer higher limits or a webhook option for bulk syncs? Trying to design around them correctly.",
+    "expected_urgency": "medium", "expected_intent": "question"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "mode": "openai",
+  "emails": 12,
+  "urgency_accuracy": 0.833,
+  "intent_accuracy": 0.833,
+  "avg_ms_per_email": 5034,
+  "avg_cost_per_email": 0.00377,
+  "cost_per_1000": 3.77,
+  "tone_rewrites": 0
+}

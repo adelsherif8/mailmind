@@ -1,0 +1,74 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+:root{--ink:#1b1d24;--muted:#6a7080;--line:#e5e7ec;--soft:#f6f7f9;--accent:#4f46e5;--high:#e5484d;--low:#12805c}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+body{width:1200px;height:750px;overflow:hidden;position:relative;background:#eef0f4;color:var(--ink)}
+.wrap{padding:54px 60px;height:100%;display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:30px}
+.mk{width:46px;height:46px;border-radius:12px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:1.35rem}
+.brand b{font-size:1.5rem;font-weight:700;letter-spacing:-.01em}
+.brand span{display:block;font-size:.82rem;color:var(--muted);font-weight:400}
+.chips{margin-left:auto;display:flex;gap:8px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 13px;font-size:.74rem;color:var(--muted)}
+.chip b{color:var(--ink);font-size:.92rem;font-weight:700;display:block}
+.main{display:flex;gap:44px;flex:1;align-items:center}
+.left{width:520px}
+.left h1{font-size:3rem;line-height:1.08;letter-spacing:-.03em;font-weight:700}
+.left h1 em{font-style:normal;color:var(--accent)}
+.left .sub{font-size:1.14rem;color:var(--muted);margin-top:16px;line-height:1.5}
+.feats{margin-top:26px;display:flex;flex-direction:column;gap:13px}
+.feat{display:flex;align-items:center;gap:12px;font-size:1rem;color:#33363f}
+.feat i{width:30px;height:30px;border-radius:8px;background:#eef0ff;color:var(--accent);display:grid;place-items:center;font-size:.85rem;flex-shrink:0}
+.card{flex:1;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 50px rgba(20,24,40,.12);overflow:hidden}
+.crow{display:flex;gap:11px;padding:15px 17px;border-bottom:1px solid var(--line)}
+.av{width:36px;height:36px;border-radius:50%;background:var(--high);color:#fff;display:grid;place-items:center;font-weight:600;font-size:.82rem;flex-shrink:0}
+.crow .nm{font-weight:600;font-size:.9rem}
+.crow .sub2{font-size:.84rem;margin:1px 0}
+.crow .sn{font-size:.78rem;color:var(--muted)}
+.cbody{padding:16px 17px}
+.badges{display:flex;gap:7px;margin-bottom:12px}
+.badge{font-size:.74rem;font-weight:600;padding:4px 10px;border-radius:7px;display:inline-flex;align-items:center;gap:6px}
+.badge.high{background:#fdecec;color:var(--high)}.badge.intent{background:#eef0ff;color:var(--accent)}
+.udot{width:8px;height:8px;border-radius:50%;background:var(--high)}
+.draft{background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:12px 14px;font-size:.84rem;color:#33363f;line-height:1.55}
+.appr{margin-top:12px;display:flex;align-items:center;gap:9px}
+.btn{background:var(--accent);color:#fff;border-radius:8px;padding:8px 14px;font-size:.82rem;font-weight:600;display:inline-flex;gap:7px;align-items:center}
+.hil{font-size:.74rem;color:var(--muted)}
+.foot{margin-top:22px;padding-top:16px;border-top:1px solid #dcdfe6;display:flex;justify-content:space-between;font-size:.9rem;color:var(--muted)}
+.foot b{color:var(--ink);font-weight:600}
+</style></head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <div class="mk"><i class="fa-solid fa-inbox"></i></div>
+    <div><b>MailMind</b><span>AI email triage &amp; draft engine</span></div>
+    <div class="chips"><div class="chip">Urgency<b>83%</b></div><div class="chip">Cost / 1k<b>$3.77</b></div></div>
+  </div>
+  <div class="main">
+    <div class="left">
+      <h1>Triage the inbox.<br/>Draft the <em>replies.</em></h1>
+      <div class="sub">MailMind reads every incoming email, tags urgency and intent, and drafts a reply in your tone — you just approve.</div>
+      <div class="feats">
+        <div class="feat"><i class="fa-solid fa-diagram-project"></i> LangGraph: classifier → drafter → tone-critic</div>
+        <div class="feat"><i class="fa-solid fa-user-check"></i> Human-in-the-loop — nothing sends without approval</div>
+        <div class="feat"><i class="fa-solid fa-wand-magic-sparkles"></i> Reply in professional, friendly, or concise tone</div>
+        <div class="feat"><i class="fa-solid fa-chart-line"></i> Traced &amp; measured in Langfuse</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="crow">
+        <div class="av">RA</div>
+        <div><div class="nm">Rachel Adams</div><div class="sub2">Still haven't received my refund</div><div class="sn">Hi, I cancelled 12 days ago and was promised…</div></div>
+      </div>
+      <div class="cbody">
+        <div class="badges"><span class="badge high"><span class="udot"></span>high priority</span><span class="badge intent">complaint</span></div>
+        <div class="draft">Hi Rachel, I sincerely apologize for the frustration. I've escalated your case to our billing team to ensure your refund is processed immediately — you should see it within 2–3 business days…</div>
+        <div class="appr"><span class="btn"><i class="fa-solid fa-paper-plane"></i> Approve &amp; send</span><span class="hil">you approve every reply</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span><b>Python</b> · LangGraph · GPT-4o · FastAPI · Langfuse</span><span>email triage &amp; drafting</span></div>
+</div>
+</body></html>
