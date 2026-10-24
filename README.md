@@ -35,3 +35,7 @@ incoming email → Classifier (urgency + intent) → Drafter (your tone)
 Python · FastAPI · LangGraph · GPT-4o · Langfuse
 
 Built by **Adel Atya** — adelatya.vercel.app
+
+---
+
+Built by **Adel Atya**, AI engineer: AI voice agents, agentic systems and automation for businesses. [adelatya.com](https://adelatya.com)
